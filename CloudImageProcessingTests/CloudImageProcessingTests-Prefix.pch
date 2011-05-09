@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CloudImageProcessingTests' target in the 'CloudImageProcessingTests' project
+//
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+#endif

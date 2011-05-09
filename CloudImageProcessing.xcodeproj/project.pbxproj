@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		251D0CE71377CE2300E423A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251D0CE61377CE2300E423A4 /* UIKit.framework */; };
+		251D0CE91377CE2300E423A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251D0CE81377CE2300E423A4 /* Foundation.framework */; };
+		251D0CEB1377CE2300E423A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251D0CEA1377CE2300E423A4 /* CoreGraphics.framework */; };
+		251D0CF11377CE2300E423A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 251D0CEF1377CE2300E423A4 /* InfoPlist.strings */; };
+		251D0CF41377CE2300E423A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D0CF31377CE2300E423A4 /* main.m */; };
+		251D0CF71377CE2300E423A4 /* CloudImageProcessingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D0CF61377CE2300E423A4 /* CloudImageProcessingAppDelegate.m */; };
+		251D0CFA1377CE2300E423A4 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 251D0CF81377CE2300E423A4 /* MainWindow.xib */; };
+		251D0D011377CE2300E423A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251D0CE61377CE2300E423A4 /* UIKit.framework */; };
+		251D0D021377CE2300E423A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251D0CE81377CE2300E423A4 /* Foundation.framework */; };
+		251D0D031377CE2300E423A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251D0CEA1377CE2300E423A4 /* CoreGraphics.framework */; };
+		251D0D0B1377CE2300E423A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 251D0D091377CE2300E423A4 /* InfoPlist.strings */; };
+		251D0D0E1377CE2300E423A4 /* CloudImageProcessingTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 251D0D0D1377CE2300E423A4 /* CloudImageProcessingTests.h */; };
+		251D0D101377CE2300E423A4 /* CloudImageProcessingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D0D0F1377CE2300E423A4 /* CloudImageProcessingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		251D0D041377CE2300E423A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 251D0CD91377CE2300E423A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 251D0CE11377CE2300E423A4;
+			remoteInfo = CloudImageProcessing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		251D0CE21377CE2300E423A4 /* CloudImageProcessing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudImageProcessing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		251D0CE61377CE2300E423A4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		251D0CE81377CE2300E423A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		251D0CEA1377CE2300E423A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		251D0CEE1377CE2300E423A4 /* CloudImageProcessing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CloudImageProcessing-Info.plist"; sourceTree = "<group>"; };
+		251D0CF01377CE2300E423A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		251D0CF21377CE2300E423A4 /* CloudImageProcessing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudImageProcessing-Prefix.pch"; sourceTree = "<group>"; };
+		251D0CF31377CE2300E423A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		251D0CF51377CE2300E423A4 /* CloudImageProcessingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudImageProcessingAppDelegate.h; sourceTree = "<group>"; };
+		251D0CF61377CE2300E423A4 /* CloudImageProcessingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudImageProcessingAppDelegate.m; sourceTree = "<group>"; };
+		251D0CF91377CE2300E423A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		251D0D001377CE2300E423A4 /* CloudImageProcessingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudImageProcessingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		251D0D081377CE2300E423A4 /* CloudImageProcessingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CloudImageProcessingTests-Info.plist"; sourceTree = "<group>"; };
+		251D0D0A1377CE2300E423A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		251D0D0C1377CE2300E423A4 /* CloudImageProcessingTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudImageProcessingTests-Prefix.pch"; sourceTree = "<group>"; };
+		251D0D0D1377CE2300E423A4 /* CloudImageProcessingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudImageProcessingTests.h; sourceTree = "<group>"; };
+		251D0D0F1377CE2300E423A4 /* CloudImageProcessingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudImageProcessingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		251D0CDF1377CE2300E423A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251D0CE71377CE2300E423A4 /* UIKit.framework in Frameworks */,
+				251D0CE91377CE2300E423A4 /* Foundation.framework in Frameworks */,
+				251D0CEB1377CE2300E423A4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		251D0CFC1377CE2300E423A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251D0D011377CE2300E423A4 /* UIKit.framework in Frameworks */,
+				251D0D021377CE2300E423A4 /* Foundation.framework in Frameworks */,
+				251D0D031377CE2300E423A4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		251D0CD71377CE2300E423A4 = {
+			isa = PBXGroup;
+			children = (
+				251D0CEC1377CE2300E423A4 /* CloudImageProcessing */,
+				251D0D061377CE2300E423A4 /* CloudImageProcessingTests */,
+				251D0CE51377CE2300E423A4 /* Frameworks */,
+				251D0CE31377CE2300E423A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		251D0CE31377CE2300E423A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				251D0CE21377CE2300E423A4 /* CloudImageProcessing.app */,
+				251D0D001377CE2300E423A4 /* CloudImageProcessingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		251D0CE51377CE2300E423A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				251D0CE61377CE2300E423A4 /* UIKit.framework */,
+				251D0CE81377CE2300E423A4 /* Foundation.framework */,
+				251D0CEA1377CE2300E423A4 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		251D0CEC1377CE2300E423A4 /* CloudImageProcessing */ = {
+			isa = PBXGroup;
+			children = (
+				251D0CF51377CE2300E423A4 /* CloudImageProcessingAppDelegate.h */,
+				251D0CF61377CE2300E423A4 /* CloudImageProcessingAppDelegate.m */,
+				251D0CF81377CE2300E423A4 /* MainWindow.xib */,
+				251D0CED1377CE2300E423A4 /* Supporting Files */,
+			);
+			path = CloudImageProcessing;
+			sourceTree = "<group>";
+		};
+		251D0CED1377CE2300E423A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				251D0CEE1377CE2300E423A4 /* CloudImageProcessing-Info.plist */,
+				251D0CEF1377CE2300E423A4 /* InfoPlist.strings */,
+				251D0CF21377CE2300E423A4 /* CloudImageProcessing-Prefix.pch */,
+				251D0CF31377CE2300E423A4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		251D0D061377CE2300E423A4 /* CloudImageProcessingTests */ = {
+			isa = PBXGroup;
+			children = (
+				251D0D0D1377CE2300E423A4 /* CloudImageProcessingTests.h */,
+				251D0D0F1377CE2300E423A4 /* CloudImageProcessingTests.m */,
+				251D0D071377CE2300E423A4 /* Supporting Files */,
+			);
+			path = CloudImageProcessingTests;
+			sourceTree = "<group>";
+		};
+		251D0D071377CE2300E423A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				251D0D081377CE2300E423A4 /* CloudImageProcessingTests-Info.plist */,
+				251D0D091377CE2300E423A4 /* InfoPlist.strings */,
+				251D0D0C1377CE2300E423A4 /* CloudImageProcessingTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		251D0CE11377CE2300E423A4 /* CloudImageProcessing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 251D0D131377CE2300E423A4 /* Build configuration list for PBXNativeTarget "CloudImageProcessing" */;
+			buildPhases = (
+				251D0CDE1377CE2300E423A4 /* Sources */,
+				251D0CDF1377CE2300E423A4 /* Frameworks */,
+				251D0CE01377CE2300E423A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudImageProcessing;
+			productName = CloudImageProcessing;
+			productReference = 251D0CE21377CE2300E423A4 /* CloudImageProcessing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		251D0CFF1377CE2300E423A4 /* CloudImageProcessingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 251D0D161377CE2300E423A4 /* Build configuration list for PBXNativeTarget "CloudImageProcessingTests" */;
+			buildPhases = (
+				251D0CFB1377CE2300E423A4 /* Sources */,
+				251D0CFC1377CE2300E423A4 /* Frameworks */,
+				251D0CFD1377CE2300E423A4 /* Resources */,
+				251D0CFE1377CE2300E423A4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				251D0D051377CE2300E423A4 /* PBXTargetDependency */,
+			);
+			name = CloudImageProcessingTests;
+			productName = CloudImageProcessingTests;
+			productReference = 251D0D001377CE2300E423A4 /* CloudImageProcessingTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		251D0CD91377CE2300E423A4 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 251D0CDC1377CE2300E423A4 /* Build configuration list for PBXProject "CloudImageProcessing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 251D0CD71377CE2300E423A4;
+			productRefGroup = 251D0CE31377CE2300E423A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				251D0CE11377CE2300E423A4 /* CloudImageProcessing */,
+				251D0CFF1377CE2300E423A4 /* CloudImageProcessingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		251D0CE01377CE2300E423A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251D0CF11377CE2300E423A4 /* InfoPlist.strings in Resources */,
+				251D0CFA1377CE2300E423A4 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		251D0CFD1377CE2300E423A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251D0D0B1377CE2300E423A4 /* InfoPlist.strings in Resources */,
+				251D0D0E1377CE2300E423A4 /* CloudImageProcessingTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		251D0CFE1377CE2300E423A4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		251D0CDE1377CE2300E423A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251D0CF41377CE2300E423A4 /* main.m in Sources */,
+				251D0CF71377CE2300E423A4 /* CloudImageProcessingAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		251D0CFB1377CE2300E423A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251D0D101377CE2300E423A4 /* CloudImageProcessingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		251D0D051377CE2300E423A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 251D0CE11377CE2300E423A4 /* CloudImageProcessing */;
+			targetProxy = 251D0D041377CE2300E423A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		251D0CEF1377CE2300E423A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				251D0CF01377CE2300E423A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		251D0CF81377CE2300E423A4 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				251D0CF91377CE2300E423A4 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		251D0D091377CE2300E423A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				251D0D0A1377CE2300E423A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		251D0D111377CE2300E423A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		251D0D121377CE2300E423A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		251D0D141377CE2300E423A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudImageProcessing/CloudImageProcessing-Prefix.pch";
+				INFOPLIST_FILE = "CloudImageProcessing/CloudImageProcessing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		251D0D151377CE2300E423A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudImageProcessing/CloudImageProcessing-Prefix.pch";
+				INFOPLIST_FILE = "CloudImageProcessing/CloudImageProcessing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		251D0D171377CE2300E423A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CloudImageProcessing.app/CloudImageProcessing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudImageProcessingTests/CloudImageProcessingTests-Prefix.pch";
+				INFOPLIST_FILE = "CloudImageProcessingTests/CloudImageProcessingTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		251D0D181377CE2300E423A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CloudImageProcessing.app/CloudImageProcessing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudImageProcessingTests/CloudImageProcessingTests-Prefix.pch";
+				INFOPLIST_FILE = "CloudImageProcessingTests/CloudImageProcessingTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		251D0CDC1377CE2300E423A4 /* Build configuration list for PBXProject "CloudImageProcessing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251D0D111377CE2300E423A4 /* Debug */,
+				251D0D121377CE2300E423A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		251D0D131377CE2300E423A4 /* Build configuration list for PBXNativeTarget "CloudImageProcessing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251D0D141377CE2300E423A4 /* Debug */,
+				251D0D151377CE2300E423A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		251D0D161377CE2300E423A4 /* Build configuration list for PBXNativeTarget "CloudImageProcessingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251D0D171377CE2300E423A4 /* Debug */,
+				251D0D181377CE2300E423A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 251D0CD91377CE2300E423A4 /* Project object */;
+}
