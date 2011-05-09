@@ -20,6 +20,8 @@
 		251D0D0B1377CE2300E423A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 251D0D091377CE2300E423A4 /* InfoPlist.strings */; };
 		251D0D0E1377CE2300E423A4 /* CloudImageProcessingTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 251D0D0D1377CE2300E423A4 /* CloudImageProcessingTests.h */; };
 		251D0D101377CE2300E423A4 /* CloudImageProcessingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D0D0F1377CE2300E423A4 /* CloudImageProcessingTests.m */; };
+		25391A6913780D0000F6D0F4 /* arrow_circle_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 25391A6713780D0000F6D0F4 /* arrow_circle_left.png */; };
+		25391A6A13780D0000F6D0F4 /* arrow_circle_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25391A6813780D0000F6D0F4 /* arrow_circle_left@2x.png */; };
 		25CF5D781377FDBE00343493 /* ant-eater.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25CF5D771377FDBE00343493 /* ant-eater.jpg */; };
 		25CF5E601378029C00343493 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CF5E2A1378029C00343493 /* ASIAuthenticationDialog.m */; };
 		25CF5E611378029C00343493 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CF5E2D1378029C00343493 /* ASIDataCompressor.m */; };
@@ -94,6 +96,8 @@
 		251D0D0C1377CE2300E423A4 /* CloudImageProcessingTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudImageProcessingTests-Prefix.pch"; sourceTree = "<group>"; };
 		251D0D0D1377CE2300E423A4 /* CloudImageProcessingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudImageProcessingTests.h; sourceTree = "<group>"; };
 		251D0D0F1377CE2300E423A4 /* CloudImageProcessingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudImageProcessingTests.m; sourceTree = "<group>"; };
+		25391A6713780D0000F6D0F4 /* arrow_circle_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_circle_left.png; sourceTree = "<group>"; };
+		25391A6813780D0000F6D0F4 /* arrow_circle_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_circle_left@2x.png"; sourceTree = "<group>"; };
 		25CF5D771377FDBE00343493 /* ant-eater.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ant-eater.jpg"; sourceTree = "<group>"; };
 		25CF5E291378029C00343493 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		25CF5E2A1378029C00343493 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 		25CF5D761377FDBE00343493 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				25391A6713780D0000F6D0F4 /* arrow_circle_left.png */,
+				25391A6813780D0000F6D0F4 /* arrow_circle_left@2x.png */,
 				25CF5E921378054D00343493 /* film.png */,
 				25CF5E931378054D00343493 /* film@2x.png */,
 				25CF5D771377FDBE00343493 /* ant-eater.jpg */,
@@ -479,6 +485,8 @@
 				25CF5D781377FDBE00343493 /* ant-eater.jpg in Resources */,
 				25CF5E941378054D00343493 /* film.png in Resources */,
 				25CF5E951378054D00343493 /* film@2x.png in Resources */,
+				25391A6913780D0000F6D0F4 /* arrow_circle_left.png in Resources */,
+				25391A6A13780D0000F6D0F4 /* arrow_circle_left@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

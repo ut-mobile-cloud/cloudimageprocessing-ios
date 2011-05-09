@@ -88,7 +88,10 @@
 							<reference key="IBUINavigationBar"/>
 							<string key="IBUITitle">Videos</string>
 							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="36625631">
-								<string key="IBUITitle">Item</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">arrow_circle_left.png</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUINavigationItem" ref="462766542"/>
@@ -319,6 +322,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">arrow_circle_left.png</string>
+			<string key="NS.object.0">{24, 24}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>
 	</data>
 </archive>
