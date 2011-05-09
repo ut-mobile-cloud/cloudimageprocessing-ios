@@ -49,6 +49,11 @@
 		25CF5E7C137802C200343493 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CF5E7B137802C200343493 /* MobileCoreServices.framework */; };
 		25CF5E7F137802F400343493 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CF5E7E137802F400343493 /* libz.dylib */; };
 		25CF5E891378034700343493 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CF5E881378034700343493 /* libxml2.dylib */; };
+		25CF5E941378054D00343493 /* film.png in Resources */ = {isa = PBXBuildFile; fileRef = 25CF5E921378054D00343493 /* film.png */; };
+		25CF5E951378054D00343493 /* film@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25CF5E931378054D00343493 /* film@2x.png */; };
+		25CF5E98137805F800343493 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CF5E97137805F800343493 /* MediaPlayer.framework */; };
+		25CF5E9B1378073800343493 /* MCVideoAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CF5E9A1378073700343493 /* MCVideoAsset.m */; };
+		25CF5E9E1378083E00343493 /* MCAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CF5E9D1378083C00343493 /* MCAssetManager.m */; };
 		25EBD75A1377DDB000AA6F1D /* MCVideoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD7581377DDB000AA6F1D /* MCVideoListController.m */; };
 		25EBD75B1377DDB000AA6F1D /* MCVideoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD7581377DDB000AA6F1D /* MCVideoListController.m */; };
 		25EBD75C1377DDB000AA6F1D /* MCVideoListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25EBD7591377DDB000AA6F1D /* MCVideoListController.xib */; };
@@ -147,6 +152,13 @@
 		25CF5E7D137802C900343493 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		25CF5E7E137802F400343493 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		25CF5E881378034700343493 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		25CF5E921378054D00343493 /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film.png; sourceTree = "<group>"; };
+		25CF5E931378054D00343493 /* film@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "film@2x.png"; sourceTree = "<group>"; };
+		25CF5E97137805F800343493 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		25CF5E991378073700343493 /* MCVideoAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCVideoAsset.h; sourceTree = "<group>"; };
+		25CF5E9A1378073700343493 /* MCVideoAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCVideoAsset.m; sourceTree = "<group>"; };
+		25CF5E9C1378083C00343493 /* MCAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAssetManager.h; sourceTree = "<group>"; };
+		25CF5E9D1378083C00343493 /* MCAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAssetManager.m; sourceTree = "<group>"; };
 		25EBD7571377DDB000AA6F1D /* MCVideoListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCVideoListController.h; sourceTree = "<group>"; };
 		25EBD7581377DDB000AA6F1D /* MCVideoListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCVideoListController.m; sourceTree = "<group>"; };
 		25EBD7591377DDB000AA6F1D /* MCVideoListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCVideoListController.xib; sourceTree = "<group>"; };
@@ -164,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25CF5E98137805F800343493 /* MediaPlayer.framework in Frameworks */,
 				25CF5E891378034700343493 /* libxml2.dylib in Frameworks */,
 				25CF5E7F137802F400343493 /* libz.dylib in Frameworks */,
 				251D0CEB1377CE2300E423A4 /* CoreGraphics.framework in Frameworks */,
@@ -211,6 +224,7 @@
 		251D0CE51377CE2300E423A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25CF5E97137805F800343493 /* MediaPlayer.framework */,
 				25CF5E881378034700343493 /* libxml2.dylib */,
 				25CF5E7E137802F400343493 /* libz.dylib */,
 				25CF5E7D137802C900343493 /* CoreGraphics.framework */,
@@ -241,6 +255,10 @@
 				25EBD7651377DED300AA6F1D /* MCVideoListCell.h */,
 				25EBD7661377DED300AA6F1D /* MCVideoListCell.m */,
 				25EBD7681377DEFF00AA6F1D /* MCVideoListCell.xib */,
+				25CF5E991378073700343493 /* MCVideoAsset.h */,
+				25CF5E9A1378073700343493 /* MCVideoAsset.m */,
+				25CF5E9C1378083C00343493 /* MCAssetManager.h */,
+				25CF5E9D1378083C00343493 /* MCAssetManager.m */,
 			);
 			path = CloudImageProcessing;
 			sourceTree = "<group>";
@@ -280,6 +298,8 @@
 		25CF5D761377FDBE00343493 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				25CF5E921378054D00343493 /* film.png */,
+				25CF5E931378054D00343493 /* film@2x.png */,
 				25CF5D771377FDBE00343493 /* ant-eater.jpg */,
 			);
 			path = Images;
@@ -457,6 +477,8 @@
 				25EBD7621377DDFC00AA6F1D /* MCVideoDetailsController.xib in Resources */,
 				25EBD7691377DEFF00AA6F1D /* MCVideoListCell.xib in Resources */,
 				25CF5D781377FDBE00343493 /* ant-eater.jpg in Resources */,
+				25CF5E941378054D00343493 /* film.png in Resources */,
+				25CF5E951378054D00343493 /* film@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +544,8 @@
 				25CF5E741378029C00343493 /* ASIS3Request.m in Sources */,
 				25CF5E751378029C00343493 /* ASIS3ServiceRequest.m in Sources */,
 				25CF5E761378029C00343493 /* Reachability.m in Sources */,
+				25CF5E9B1378073800343493 /* MCVideoAsset.m in Sources */,
+				25CF5E9E1378083E00343493 /* MCAssetManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
