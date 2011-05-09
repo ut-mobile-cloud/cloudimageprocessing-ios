@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CloudImageProcessingAppDelegate : NSObject <UIApplicationDelegate> {
-
+@interface CloudImageProcessingAppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate> {
+	UINavigationController *_navigationController;
 }
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 

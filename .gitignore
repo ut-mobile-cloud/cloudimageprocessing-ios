@@ -1,2 +1,4 @@
+# Xcode and mac specific files to ignore
 .DS_Store
 xcuserdata
+*~

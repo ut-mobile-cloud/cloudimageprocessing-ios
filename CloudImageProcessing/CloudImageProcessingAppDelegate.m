@@ -11,11 +11,12 @@
 @implementation CloudImageProcessingAppDelegate
 
 
+@synthesize navigationController = _navigationController;
 @synthesize window=_window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	// Override point for customization after application launch.
+	[self.window addSubview:self.navigationController.view];
 	[self.window makeKeyAndVisible];
     return YES;
 }
@@ -62,6 +63,7 @@
 - (void)dealloc
 {
 	[_window release];
+    [_navigationController release];
     [super dealloc];
 }
 
