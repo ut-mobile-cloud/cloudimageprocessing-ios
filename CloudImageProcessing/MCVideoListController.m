@@ -9,18 +9,76 @@
 #import "MCVideoListController.h"
 #import "MCVideoListCell.h"
 #import "MCVideoDetailsController.h"
+#import "MCResourceManager.h"
+#import "MCVideoResource.h"
+
+#define MCVideoCellThumbnailImageViewTag 1001
+#define MCVideoCellTitleLabelTag 1002
+#define MCVideoCellSizeLabelTag 1003
+#define MCVideoCellDurationLabelTag 1004
+
+static int MCBytesInOneMB = 1048576;
 
 @implementation MCVideoListController
 
-- (NSString *)name
+@synthesize videosTable;
+@synthesize resources;
+@synthesize customVideoCell;
+
+- (UITableViewCell *)loadCell
 {
-	return @"Rebukott";
+	[[NSBundle mainBundle] loadNibNamed:@"MCVideoListCell" owner:self options:nil];
+	return self.customVideoCell;
 }
+
+- (IBAction)pickVideoPressed:(id)sender {
+	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	picker.delegate = self;
+	[self presentModalViewController:picker animated:YES];
+	[picker release];
+}
+
+- (void)resourcesUpdated:(NSNotification *)notification
+{
+	NSDictionary *userInfo = [notification userInfo];
+	if ([userInfo objectForKey:@"error"] == [NSNull null]) {
+		DLog(@"Updating resources was successful redrawing table");
+		[self.videosTable reloadData];
+	} else {
+		DLog(@"Will show alert view");
+		NSError *error = [userInfo objectForKey:@"error"];
+		NSString *errorMessage = [NSString stringWithFormat:@"%@", error];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error refreshing" message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}
+	DLog(@"Notification received. Resources were updated.");
+}
+
+- (IBAction)refreshPressed:(id)sender {
+	DLog(@"refresh pressed");
+	[[MCResourceManager sharedManager] refreshResources];
+}
+
+
+#pragma mark UIImagePickerControllerDelegate
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+	[picker dismissModalViewControllerAnimated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	DLog(@"finished picking : %@", info);
+	[picker dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	DLog(@"Ridu kysiti");
-	NSInteger rows = 10;
+	NSInteger rows = [MCResourceManager sharedManager].resources.count;
 	return rows;
 }
 
@@ -31,20 +89,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"MCCustomVideoCellIdentificator";
-	
-	MCVideoListCell*cell = (MCVideoListCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"MCCustomVideoCellIdentifier";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"MCVideoListCell" owner:self options:nil];
-		for (id currentObject in topLevelObjects) {
-			if([currentObject isKindOfClass:[MCVideoListCell class]]) {
-				cell = (MCVideoListCell *)currentObject;
-				break;
-			}
-		}
+		cell = [self loadCell];
+		DLog(@"New cell w/ reuse identifier : %@", cell.reuseIdentifier);
     }
+	MCVideoResource *videoResource = [[MCResourceManager sharedManager].resources objectAtIndex:indexPath.row];
+	UILabel *titleLabel = (UILabel *)[cell viewWithTag:MCVideoCellTitleLabelTag];
+	UILabel *sizeLabel = (UILabel *)[cell viewWithTag:MCVideoCellSizeLabelTag];
+	UILabel *durationLabel = (UILabel *)[cell viewWithTag:MCVideoCellDurationLabelTag];
 	
-    
+	titleLabel.text = videoResource.title;
+	sizeLabel.text = [NSString stringWithFormat:@"%.3f MB", [videoResource.size floatValue]/MCBytesInOneMB];
+	durationLabel.text = [NSString stringWithFormat:@"%@ sec", videoResource.duration];
 	
     return cell;
 }
@@ -55,11 +113,11 @@
 {
 	return 85;
 }
-// - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
-// - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	MCVideoDetailsController *detailsController = [[MCVideoDetailsController alloc] initWithNibName:@"MCVideoDetailsController" bundle:[NSBundle mainBundle]];
+	detailsController.videoResource = [[MCResourceManager sharedManager].resources objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:detailsController animated:YES];
 	[detailsController release];
 }
@@ -68,35 +126,29 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        DLog(@"I was called");
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self.videosTable deselectRowAtIndexPath:[self.videosTable indexPathForSelectedRow] animated:YES];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	DLog(@"Siins");
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourcesUpdated:) name:MCResourcesUpdatedNotification object:nil];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
+	[self setVideosTable:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[self setCustomVideoCell:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -108,4 +160,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)dealloc {
+	[videosTable release];
+	[customVideoCell release];
+	[super dealloc];
+}
 @end

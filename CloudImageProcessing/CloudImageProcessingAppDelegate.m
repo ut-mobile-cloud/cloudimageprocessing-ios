@@ -7,6 +7,7 @@
 //
 
 #import "CloudImageProcessingAppDelegate.h"
+#import "MCResourceManager.h"
 
 @implementation CloudImageProcessingAppDelegate
 
@@ -16,9 +17,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
 	[self.window addSubview:self.navigationController.view];
 	[self.window makeKeyAndVisible];
+	[[MCResourceManager sharedManager] refreshResources];
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+	DLog(@"Received notification : \n\t%@", userInfo);
+	[[MCResourceManager sharedManager] remoteNotificationReceived:userInfo];
+}
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+	DLog(@"Registered for remote notification : %@", deviceToken);
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+	
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

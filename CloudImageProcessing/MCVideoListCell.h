@@ -11,6 +11,17 @@
 
 @interface MCVideoListCell : UITableViewCell {
     
+	UIImageView *thumbnailImageView;
+	UILabel *titleLabel;
+	UILabel *sizeLabel;
+	UILabel *durationLabel;
 }
+
+@property (nonatomic, retain) IBOutlet UIImageView *thumbnailImageView;
+@property (nonatomic, retain) IBOutlet UILabel *titleLabel;
+@property (nonatomic, retain) IBOutlet UILabel *sizeLabel;
+@property (nonatomic, retain) IBOutlet UILabel *durationLabel;
+
++ (MCVideoListCell *)cellFromNibNamed:(NSString *)nibName;
 
 @end
