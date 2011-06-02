@@ -24,5 +24,4 @@
 @property (nonatomic, retain) NSNumber *duration;
 @property (nonatomic, retain) NSString *location;
 
-
 @end

@@ -11,6 +11,9 @@
 #import "MCVideoDetailsController.h"
 #import "MCResourceManager.h"
 #import "MCVideoResource.h"
+#import "MCTimeSynchronizer.h"
+#import "MCAsyncTestTimes.h"
+#import "MCTestTimesManager.h"
 
 #define MCVideoCellThumbnailImageViewTag 1001
 #define MCVideoCellTitleLabelTag 1002
@@ -18,6 +21,35 @@
 #define MCVideoCellDurationLabelTag 1004
 
 static int MCBytesInOneMB = 1048576;
+
+// Includes for private interface, used only for performance measurement
+
+#import "ASIFormDataRequest.h"
+#import "MCAppSettings.h"
+
+@interface MCVideoListController (Performance)
+
+- (void)syncTimesWithServer:(MCAsyncTestTimes *)times;
+
+@end
+
+@implementation MCVideoListController (Performance)
+
+- (void)syncTimesWithServer:(MCAsyncTestTimes *)clientTimes
+{
+	DLog(@"Syncing times with server : testID : %@", clientTimes.testID);
+	NSURL *servletURL = [[MCAppSettings sharedSettings] urlForServletName:@"TestTimesServlet"];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:servletURL];
+	[request addPostValue:@"AsyncTests" forKey:@"testType"];
+	[request addPostValue:clientTimes.testID forKey:@"testID"];
+	[request addPostValue:[clientTimes JSONRepresentation] forKey:@"clientTimes"];
+	
+	[request startSynchronous];
+	DLog(@"RESPONSE : ", [request responseString]);
+}
+
+@end
+
 
 @implementation MCVideoListController
 
@@ -37,6 +69,23 @@ static int MCBytesInOneMB = 1048576;
 	picker.delegate = self;
 	[self presentModalViewController:picker animated:YES];
 	[picker release];
+}
+
+- (void)notificationReceived:(NSNotification *)notification
+{
+	// Resource was updated
+	// TODO: add checking here. Currently this method is meant to be used
+	// for handling all otherwise unhandled notifications. At the moment only 
+	// MCResourceProcessingCompleteNotification will be catched
+	DLog(@"MCResourceProcessingCompleteNotification : %@", notification);
+	NSString *resourceID = [[notification userInfo] objectForKey:@"resourceID"];
+	if (resourceID != nil && [resourceID length]>0) {
+		MCAsyncTestTimes *clientTimes = [[MCTestTimesManager sharedManager] timesForID:resourceID];
+		clientTimes.clientReceivePushNotification = [[NSDate date] timeIntervalSince1970];
+		[self syncTimesWithServer:clientTimes];
+	}
+	
+	
 }
 
 - (void)resourcesUpdated:(NSNotification *)notification
@@ -59,6 +108,23 @@ static int MCBytesInOneMB = 1048576;
 - (IBAction)refreshPressed:(id)sender {
 	DLog(@"refresh pressed");
 	[[MCResourceManager sharedManager] refreshResources];
+}
+
+- (IBAction)runTestsPressed:(id)sender {
+	MCAsyncTestTimes *testTimes = [[MCAsyncTestTimes alloc] init];
+	
+	MCVideoResource *testResource = [[MCVideoResource alloc] init];
+	[testResource setID:testTimes.testID];
+	[[MCTestTimesManager sharedManager] addTimes:testTimes];
+	
+	[testResource setLocation:@"input1"];
+	
+	[[MCResourceManager sharedManager] requestProcessingResource:testResource];
+	
+	//[[MCTimeSynchronizer sharedSynchronizer] startSyncingWithMCM];
+	DLog(@"Time difference : %f", [[MCTimeSynchronizer sharedSynchronizer] calculateSyncDifference]);
+	[self syncTimesWithServer:testTimes];
+	[testTimes release];
 }
 
 
@@ -141,7 +207,7 @@ static int MCBytesInOneMB = 1048576;
 {
     [super viewDidLoad];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourcesUpdated:) name:MCResourcesUpdatedNotification object:nil];
-    // Do any additional setup after loading the view from its nib.
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationReceived:) name:MCResourceProcessingCompleteNotification object:nil];
 }
 
 - (void)viewDidUnload

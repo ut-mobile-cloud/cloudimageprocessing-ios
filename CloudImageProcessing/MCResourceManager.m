@@ -11,6 +11,8 @@
 #import "MCAppSettings.h"
 #import "MCVideoResource.h"
 #import "JSON.h"
+#import "MCTestTimesManager.h"
+#import "MCAsyncTestTimes.h"
 
 NSString *MCResourcesUpdatedNotification = @"MCResourcesUpdatedNotification";
 NSString *MCResourceProcessingStartedNotification = @"MCResourceProcessingStartedNotification";
@@ -33,7 +35,8 @@ static NSString *MCProcessResourceServletName = @"ProcessResource";
 }
 - (void)remoteNotificationReceived:(NSDictionary *)data
 {
-	DLog(@"Remote notification received");
+	DLog(@"Remote notification received : %@", data);
+	[[NSNotificationCenter defaultCenter] postNotificationName:MCResourceProcessingCompleteNotification object:self userInfo:data];
 }
 - (void)refreshResourcesBlockComplete
 {
@@ -54,6 +57,7 @@ static NSString *MCProcessResourceServletName = @"ProcessResource";
 	void (^MCRefreshResourcesBlock)(void) = ^(void) {
 		NSURL *servletURL = [[MCAppSettings sharedSettings] urlForServletName:MCListResourcesServletName];
 		ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:servletURL];
+		[request setTimeOutSeconds:60];
 		[request startSynchronous];
 		DLog(@"Finished request");
 		NSError *error = request.error;
@@ -104,10 +108,15 @@ static NSString *MCProcessResourceServletName = @"ProcessResource";
 	void (^MCRequestProcessingBlock)(void) = ^(void) {
 		NSURL *servletURL = [[MCAppSettings sharedSettings] urlForServletName:MCProcessResourceServletName];
 		ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:servletURL];
+		[request setTimeOutSeconds:60];
 		NSDictionary *resourceDict = [resource dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"ID", @"title", @"size", @"duration", @"location", nil]];
 		DLog(@"RESOURCE JSON TO SERVER : %@", [resourceDict JSONRepresentation]);
 		[request addPostValue:[resourceDict JSONRepresentation] forKey:@"resource"];
+		MCAsyncTestTimes *testTimes = [[MCTestTimesManager sharedManager] timesForID:resource.ID];
+		testTimes.clientInitialRequest = [[NSDate date] timeIntervalSince1970];
 		[request startSynchronous];
+		testTimes.clientReceiveImmediateResponse = [[NSDate date] timeIntervalSince1970];
+		[testTimes syncWithServer];
 		// TODO: check server response. Maybe something went wrong and it could not start processing ?
 		// Notify that processing has started
 		[[NSNotificationCenter defaultCenter] postNotificationName:MCResourceProcessingStartedNotification object:self userInfo:resourceDict];

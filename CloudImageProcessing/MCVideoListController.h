@@ -14,7 +14,6 @@
     NSMutableArray *resources;
 	UITableViewCell *customVideoCell;
 	UITableView *videosTable;
-	
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *videosTable;
@@ -23,5 +22,6 @@
 
 - (IBAction)pickVideoPressed:(id)sender;
 - (IBAction)refreshPressed:(id)sender;
+- (IBAction)runTestsPressed:(id)sender;
 
 @end

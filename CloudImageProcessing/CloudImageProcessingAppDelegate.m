@@ -20,7 +20,7 @@
 	[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
 	[self.window addSubview:self.navigationController.view];
 	[self.window makeKeyAndVisible];
-	[[MCResourceManager sharedManager] refreshResources];
+//	[[MCResourceManager sharedManager] refreshResources];
     return YES;
 }
 
