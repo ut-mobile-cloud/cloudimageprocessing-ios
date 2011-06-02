@@ -27,30 +27,6 @@ static int MCBytesInOneMB = 1048576;
 #import "ASIFormDataRequest.h"
 #import "MCAppSettings.h"
 
-@interface MCVideoListController (Performance)
-
-- (void)syncTimesWithServer:(MCAsyncTestTimes *)times;
-
-@end
-
-@implementation MCVideoListController (Performance)
-
-- (void)syncTimesWithServer:(MCAsyncTestTimes *)clientTimes
-{
-	DLog(@"Syncing times with server : testID : %@", clientTimes.testID);
-	NSURL *servletURL = [[MCAppSettings sharedSettings] urlForServletName:@"TestTimesServlet"];
-	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:servletURL];
-	[request addPostValue:@"AsyncTests" forKey:@"testType"];
-	[request addPostValue:clientTimes.testID forKey:@"testID"];
-	[request addPostValue:[clientTimes JSONRepresentation] forKey:@"clientTimes"];
-	
-	[request startSynchronous];
-	DLog(@"RESPONSE : ", [request responseString]);
-}
-
-@end
-
-
 @implementation MCVideoListController
 
 @synthesize videosTable;
@@ -82,7 +58,7 @@ static int MCBytesInOneMB = 1048576;
 	if (resourceID != nil && [resourceID length]>0) {
 		MCAsyncTestTimes *clientTimes = [[MCTestTimesManager sharedManager] timesForID:resourceID];
 		clientTimes.clientReceivePushNotification = [[NSDate date] timeIntervalSince1970];
-		[self syncTimesWithServer:clientTimes];
+		[clientTimes syncWithServer];
 	}
 	
 	
@@ -115,16 +91,18 @@ static int MCBytesInOneMB = 1048576;
 	
 	MCVideoResource *testResource = [[MCVideoResource alloc] init];
 	[testResource setID:testTimes.testID];
-	[[MCTestTimesManager sharedManager] addTimes:testTimes];
-	
 	[testResource setLocation:@"input1"];
-	
+
+	testTimes.clientInitialRequest = [[NSDate date] timeIntervalSince1970];
 	[[MCResourceManager sharedManager] requestProcessingResource:testResource];
-	
-	//[[MCTimeSynchronizer sharedSynchronizer] startSyncingWithMCM];
-	DLog(@"Time difference : %f", [[MCTimeSynchronizer sharedSynchronizer] calculateSyncDifference]);
-	[self syncTimesWithServer:testTimes];
+	[[MCTestTimesManager sharedManager] addTimes:testTimes];
+	[testTimes syncWithServer];
 	[testTimes release];
+}
+
+- (IBAction)syncTimesPressed:(id)sender {
+	[[MCTimeSynchronizer sharedSynchronizer] startSyncingWithMCM];
+	DLog(@"Time difference : %f", [[MCTimeSynchronizer sharedSynchronizer] calculateSyncDifference]);
 }
 
 

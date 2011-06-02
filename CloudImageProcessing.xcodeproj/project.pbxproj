@@ -91,6 +91,8 @@
 		25EBD76E1377E62B00AA6F1D /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD76D1377E62B00AA6F1D /* DebugLog.m */; };
 		25EBD76F1377E62B00AA6F1D /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD76D1377E62B00AA6F1D /* DebugLog.m */; };
 		25FDCE9513970B4F007D3DA6 /* MCTestTimesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FDCE9413970B4F007D3DA6 /* MCTestTimesManager.m */; };
+		25FDCE99139722DB007D3DA6 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FDCE97139722DB007D3DA6 /* flag.png */; };
+		25FDCE9A139722DB007D3DA6 /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FDCE98139722DB007D3DA6 /* flag@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +247,8 @@
 		25EBD76D1377E62B00AA6F1D /* DebugLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLog.m; sourceTree = "<group>"; };
 		25FDCE9313970B4F007D3DA6 /* MCTestTimesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTestTimesManager.h; sourceTree = "<group>"; };
 		25FDCE9413970B4F007D3DA6 /* MCTestTimesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTestTimesManager.m; sourceTree = "<group>"; };
+		25FDCE97139722DB007D3DA6 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		25FDCE98139722DB007D3DA6 /* flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flag@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +417,8 @@
 		25CF5D761377FDBE00343493 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				25FDCE97139722DB007D3DA6 /* flag.png */,
+				25FDCE98139722DB007D3DA6 /* flag@2x.png */,
 				25DB23211396E08200ACFD10 /* alarm.png */,
 				25DB23221396E08200ACFD10 /* alarm@2x.png */,
 				25DB23231396E08200ACFD10 /* clock.png */,
@@ -637,6 +643,8 @@
 				25DB23261396E08200ACFD10 /* alarm@2x.png in Resources */,
 				25DB23271396E08200ACFD10 /* clock.png in Resources */,
 				25DB23281396E08200ACFD10 /* clock@2x.png in Resources */,
+				25FDCE99139722DB007D3DA6 /* flag.png in Resources */,
+				25FDCE9A139722DB007D3DA6 /* flag@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

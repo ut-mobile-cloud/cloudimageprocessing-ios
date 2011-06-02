@@ -8,7 +8,7 @@
 
 #import "MCAppSettings.h"
 
-static NSString *MCServerAddress = @"192.168.1.69";
+static NSString *MCServerAddress = @"172.17.1.191";
 static NSString *MCServerPort = @"8084";
 static NSString *MCServletContextPath = @"cloudimageprocessing-server";
 

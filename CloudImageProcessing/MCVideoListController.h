@@ -23,5 +23,6 @@
 - (IBAction)pickVideoPressed:(id)sender;
 - (IBAction)refreshPressed:(id)sender;
 - (IBAction)runTestsPressed:(id)sender;
+- (IBAction)syncTimesPressed:(id)sender;
 
 @end

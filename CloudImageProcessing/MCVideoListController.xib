@@ -95,10 +95,19 @@
 							<object class="IBUIBarButtonItem" id="554735762">
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">clock.png</string>
+									<string key="NSResourceName">flag.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">2</int>
+								<reference key="IBUIToolbar" ref="682953780"/>
+							</object>
+							<object class="IBUIBarButtonItem" id="107989137">
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">clock.png</string>
+								</object>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="682953780"/>
 							</object>
 							<object class="IBUIBarButtonItem" id="311506785">
@@ -195,6 +204,14 @@
 					</object>
 					<int key="connectionID">21</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">syncTimesPressed:</string>
+						<reference key="source" ref="107989137"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">23</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -241,6 +258,7 @@
 							<reference ref="244181464"/>
 							<reference ref="554735762"/>
 							<reference ref="311506785"/>
+							<reference ref="107989137"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -269,6 +287,11 @@
 						<reference key="object" ref="311506785"/>
 						<reference key="parent" ref="682953780"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">22</int>
+						<reference key="object" ref="107989137"/>
+						<reference key="parent" ref="682953780"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -285,6 +308,7 @@
 					<string>18.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>20.IBPluginDependency</string>
+					<string>22.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -292,6 +316,7 @@
 					<string>MCVideoListController</string>
 					<string>UIResponder</string>
 					<string>{{556, 412}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -314,7 +339,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">21</int>
+			<int key="maxID">23</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -329,9 +354,11 @@
 							<string>pickVideoPressed:</string>
 							<string>refreshPressed:</string>
 							<string>runTestsPressed:</string>
+							<string>syncTimesPressed:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -344,6 +371,7 @@
 							<string>pickVideoPressed:</string>
 							<string>refreshPressed:</string>
 							<string>runTestsPressed:</string>
+							<string>syncTimesPressed:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -357,6 +385,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">runTestsPressed:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">syncTimesPressed:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -415,9 +447,11 @@
 				<string>arrow_circle_left.png</string>
 				<string>clock.png</string>
 				<string>film.png</string>
+				<string>flag.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{24, 24}</string>
 				<string>{24, 24}</string>
 				<string>{24, 24}</string>
 				<string>{24, 24}</string>
